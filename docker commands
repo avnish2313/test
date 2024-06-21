@@ -1,0 +1,22 @@
+#to run docker with gui
+
+xhost +local:docker
+
+docker run -it \
+    --env="DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    ros1_noetic
+
+--------------------------------------   
+#to exit docker
+
+exit 
+    
+docker commit <container_id_or_name> ros1_noetic
+
+-----------------------------------------
+#to run a new terminal with same docker
+
+docker exec -it <container_id_or_name> bash
+
